@@ -23,11 +23,15 @@ The supporting files required to run the code are available for download at the 
 Pretrained parameters for Resnet101 are stored in the folder "pretrained_models": https://drive.google.com/drive/folders/1lRajXvGzFOV7NnvQiGsIkjYZ8BhwBnLY?usp=drive_link 
 ### Pretrained parameters for CLIP
 If you want to use the Clip TextEncoder to generate the attribute information, you can download the following helper folders and set the parameter "use_clip" to True (default False) in opt.py.  
-backbone_pretrained: https://drive.google.com/drive/folders/1KR--Kr2HzsQIL_TAzAa_6iom-dRXKrE3?usp=drive_link  
-clip_modules: https://drive.google.com/drive/folders/1U_P3EhUgsEolT1eLHyP0kKsL7R_psQsw?usp=drive_link  
-utils_clip: https://drive.google.com/drive/folders/1OBrFC98XA_mY4lPJG9X0eKRz17R-9-TQ?usp=drive_link  
+#### backbone_pretrained: 
+https://drive.google.com/drive/folders/1KR--Kr2HzsQIL_TAzAa_6iom-dRXKrE3?usp=drive_link  
+#### clip_modules: 
+https://drive.google.com/drive/folders/1U_P3EhUgsEolT1eLHyP0kKsL7R_psQsw?usp=drive_link  
+#### utils_clip: 
+https://drive.google.com/drive/folders/1OBrFC98XA_mY4lPJG9X0eKRz17R-9-TQ?usp=drive_link  
 ### Pretrained parameters for MDAU
-You can also reproduce our SoTA results directly on the test set. We have stored the trained checkpoints in the folder "out". You just need to set the parameter "only_evaluate" to True and change the path parameter "resume".  
-out:https://drive.google.com/drive/folders/1nnfs5UatdOP3Dh74dURz82FD_EYHGL_5?usp=drive_link
+You can also reproduce our SoTA results directly on the test set. We have stored the trained checkpoints in the folder "out". You just need to set the parameter "only_evaluate" to True and change the path parameter "resume". 
+#### out:
+https://drive.google.com/drive/folders/1nnfs5UatdOP3Dh74dURz82FD_EYHGL_5?usp=drive_link
 ## How to run
 After everything is installed and configured successfully, you can run the code on each of the three datasets by simply running the three .sh files.
