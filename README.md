@@ -1,7 +1,7 @@
 # MDAU
 ## Instruction
 This work proposes an instance-level attribute update method called Multi-Domain Feature-Enhanced Attribute Updater (MDAU) for zero-shot image classification.
-![alt text](fig2.pdf)
+![alt text](fig2.jpg)
 ## Installation
 python==3.6  
 clip==1.0  
