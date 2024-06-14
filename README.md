@@ -20,7 +20,7 @@ tqdm==4.64.0
 ## File
 The supporting files required to run the code are available for download at the following links  
 Pretrained parameters for resnet are stored in pretrained_models https://drive.google.com/drive/folders/1lRajXvGzFOV7NnvQiGsIkjYZ8BhwBnLY?usp=drive_link  
-If you want to use the clip text editor to generate the attribute information, you can download the following helper file and set the parameter use_clip to True (default False) in opt.py.  
+If you want to use the Clip TextEncoder to generate the attribute information, you can download the following helper file and set the parameter use_clip to True (default False) in opt.py.  
 https://drive.google.com/drive/folders/1KR--Kr2HzsQIL_TAzAa_6iom-dRXKrE3?usp=drive_link  
 https://drive.google.com/drive/folders/1U_P3EhUgsEolT1eLHyP0kKsL7R_psQsw?usp=drive_link  
 https://drive.google.com/drive/folders/1OBrFC98XA_mY4lPJG9X0eKRz17R-9-TQ?usp=drive_link    
