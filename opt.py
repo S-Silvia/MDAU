@@ -2,9 +2,9 @@ import argparse
 
 def get_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', default='AWA2', help='FLO, CUB')
-    parser.add_argument('--root', default='/media/cs4007/DATA1/syy/MDAU-main/model/', help='path to project')
-    parser.add_argument('--image_root', default='/media/cs4007/DATA1/syy/MDAU-main/model/data/', type=str, metavar='PATH',
+    parser.add_argument('--dataset', default='AWA2', help='SUN, CUB')
+    parser.add_argument('--root', default='./', help='path to project')
+    parser.add_argument('--image_root', default='./data/', type=str, metavar='PATH',
                         help='path to image root')
     parser.add_argument('--matdataset', default=True, help='Data in matlab format')
     parser.add_argument('--image_embedding', default='res101')
@@ -25,7 +25,7 @@ def get_opt():
     # parser.add_argument('--imagelist', default=CC_HOME + '/ZSL_REG/data/CUB/cub_imagelist.txt', type=str,
     #                     metavar='PATH',
     #                     help='path to imagelist (default: none)')
-    parser.add_argument('--resnet_path', default='/home/cs4007/SYY/try/pretrained_models/resnet101_cub.pth.tar',
+    parser.add_argument('--resnet_path', default='./pretrained_models/resnet101_cub.pth.tar',
                         # resnet101_cub.pth.tar resnet101-5d3b4d8f.pth
                         help="path to pretrain resnet classifier")
     parser.add_argument('--use_clip', type=bool, default=False)
@@ -74,7 +74,7 @@ def get_opt():
     # evaluation
     parser.add_argument('--only_evaluate', action='store_true', default=True)
     parser.add_argument('--only_test', action='store_true', default=False)
-    parser.add_argument('--resume', default='/media/cs4007/DATA1/syy/MDAU-main/model/out/SUN_GZSL_id_0.pth')
+    parser.add_argument('--resume', default='./out/SUN_GZSL_id_0.pth')
     parser.add_argument('--nhiddenlayers', default=0)
     parser.add_argument('--attri_num', default=85)
 
