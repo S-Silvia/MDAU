@@ -20,7 +20,7 @@ from main_utils import test_zsl, calibrated_stacking, test_gzsl, \
     calculate_average_IoU, test_with_IoU
 from main_utils import set_randomseed, get_loader, get_middle_graph, Loss_fn, Result
 from opt import get_opt
-from utils_clip import *
+#from utils_clip import *
 cudnn.benchmark = True
 
 
@@ -101,6 +101,7 @@ def main():
         opt.resnet_path = '/home/cs4007/SYY/try/pretrained_models/resnet101-5d3b4d8f.pth'
 
 # clip提取attribute
+    '''
     if opt.use_clip:
         print("CLIP提取属性特征")
         clip_model, preprocess = load_clip('RN101')
@@ -120,7 +121,9 @@ def main():
         opt.att_size = attribute_fea.shape[1]  # 85*2048
     else:
         attribute_fea = data.attribute
-
+        '''
+    
+    attribute_fea = data.attribute
     # initialize model
     print('Create Model...')
     model = resnet_proto_IoU(opt,attribute_fea)
