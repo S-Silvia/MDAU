@@ -4,7 +4,6 @@ import torchvision.models as models
 import torch.nn.functional as F
 import os
 import copy
-from utils_clip import *
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
