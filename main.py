@@ -76,7 +76,7 @@ def main():
         parts = ['head', 'belly', 'breast', 'belly', 'wing', 'tail', 'leg', 'others']
         group_dic = json.load(open(os.path.join(opt.root, 'data', "CUB_200_2011", 'attri_groups_8.json')))
         sub_group_dic = json.load(open(os.path.join(opt.root, 'data', "CUB_200_2011", 'attri_groups_8_layer.json')))
-        opt.resnet_path = '/media/cs4007/DATA1/syy/MDAU-main/pretrained_models/resnet101_c.pth.tar'
+        opt.resnet_path = './pretrained_models/resnet101_c.pth.tar'
     elif opt.dataset == 'AWA2':
         parts = ['color', 'texture', 'shape', 'body_parts', 'behaviour', 'nutrition', 'activativity', 'habitat',
                  'character']
@@ -91,14 +91,14 @@ def main():
         if opt.awa_finetune:
             opt.resnet_path = './pretrained_models/resnet101_awa2.pth.tar'
         else:
-            opt.resnet_path = '/media/cs4007/DATA1/syy/MDAU-main/pretrained_models/resnet101-5d3b4d8f.pth'
+            opt.resnet_path = './pretrained_models/resnet101-5d3b4d8f.pth'
     elif opt.dataset == 'SUN':
         parts = ['functions', 'materials', 'surface_properties', 'spatial_envelope']
         group_dic = json.load(open(os.path.join(opt.root, 'data', opt.dataset, 'attri_groups_4.json')))
         sub_group_dic = {}
-        opt.resnet_path = '/media/cs4007/DATA1/syy/MDAU-main/pretrained_models/resnet101_sun.pth.tar'
+        opt.resnet_path = './pretrained_models/resnet101_sun.pth.tar'
     else:
-        opt.resnet_path = '/home/cs4007/SYY/try/pretrained_models/resnet101-5d3b4d8f.pth'
+        opt.resnet_path = './pretrained_models/resnet101-5d3b4d8f.pth'
 
 # clip提取attribute
     '''
@@ -227,22 +227,22 @@ def main():
 
             batch = len(trainloader)   #batch=368
             for i, (batch_input, batch_target, impath) in enumerate(trainloader):
-                model.zero_grad()   #将模型中所有可训练参数的梯度置零，以便进行下一轮的梯度更新
+                model.zero_grad()   
                 # map target labels
-                batch_target = visual_utils.map_label(batch_target, data.seenclasses)  #torch.Size([64]),存储的都是表示类别的索引
+                batch_target = visual_utils.map_label(batch_target, data.seenclasses)  
                 input_v = Variable(batch_input)  #torch.Size([64, 3, 224, 224])
-                label_v = Variable(batch_target)  #torch.Size([64])  #记录选中图像的属性索引（0-84）
+                label_v = Variable(batch_target)  #torch.Size([64])  
                 if opt.cuda:
                     input_v = input_v.cuda()
                     label_v = label_v.cuda()
                 fea_logits,pre_atrri = model(opt,input_v, attribute_seen)
-                label_a = attribute_seen[:, label_v].t()  #torch.Size([64, 85]) 记录 一个batch中所有图像的属性向量
+                label_a = attribute_seen[:, label_v].t()  
                 loss = Loss_fn(fea_logits,opt, loss_log, reg_weight, criterion, criterion_regre, model,
                                 label_a, label_v,
                                realtrain, middle_graph, parts, group_dic, sub_group_dic,pre_atrri)
-                loss_log['ave_loss'] += loss.item()   #累加损失
+                loss_log['ave_loss'] += loss.item()   
                 loss.backward()
-                optimizer.step()   #更新模型参数
+                optimizer.step()   
             # print('\nLoss log: {}'.format({key: loss_log[key] / batch for key in loss_log}))
             print('\n[Epoch %d, Batch %5d] Train loss: %.3f '
                   % (epoch+1, batch, loss_log['ave_loss'] / batch))
@@ -267,7 +267,7 @@ def main():
 
                     if acc_GZSL_H > result_gzsl.best_acc:
                         # save model state
-                        model_save_path = os.path.join('/media/cs4007/DATA1/syy/MDAU-main/model/out/{}_GZSL_id_{}.pth'.format(opt.dataset, opt.train_id))
+                        model_save_path = os.path.join('./out/{}_GZSL_id_{}.pth'.format(opt.dataset, opt.train_id))
                         torch.save(model.state_dict(), model_save_path)
                         print('model saved to:', model_save_path)
                     result_gzsl.update_gzsl(epoch+1, acc_GZSL_unseen, acc_GZSL_seen, acc_GZSL_H)
