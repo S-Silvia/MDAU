@@ -72,7 +72,7 @@ def get_opt():
     parser.add_argument('--use_group', action='store_true', default=False)
     parser.add_argument('--avg_pool', action='store_true', default=True)
     # evaluation
-    parser.add_argument('--only_evaluate', action='store_true', default=True)
+    parser.add_argument('--only_evaluate', action='store_true', default=False)
     parser.add_argument('--only_test', action='store_true', default=False)
     parser.add_argument('--resume', default='./out/SUN_GZSL_id_0.pth')
     parser.add_argument('--nhiddenlayers', default=0)
